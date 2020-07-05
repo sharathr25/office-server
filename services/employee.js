@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const bcrypt = require('bcryptjs');
-const { Employee } = require("../models/Employee");
+const { Employee } = require("../models/employee");
 
 const createEmployee = async (employeeToAdd) => {
     const { password } = employeeToAdd;

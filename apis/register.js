@@ -1,5 +1,5 @@
 const express = require('express');
-const { validateForRegister } = require('../models/Employee')
+const { validateForRegister } = require('../models/employee')
 const { createEmployee, getEmployeeByEmail } = require('../services/employee');
 const isAdmin = require('../middlewares/admin');
 const router = express.Router();

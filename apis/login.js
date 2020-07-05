@@ -2,7 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const _ = require('lodash');
-const { validateForLogin } = require('../models/Employee')
+const { validateForLogin } = require('../models/employee')
 const { getEmployeeByEmailWithPassword, getEmployeeByEmail } = require('../services/employee');
 
 const router = express.Router();

@@ -1,6 +1,6 @@
 const express = require('express');
 const _ = require('lodash');
-const { validateForUpdate, validateForDelete, validateForGet } = require('../models/Employee')
+const { validateForUpdate, validateForDelete, validateForGet } = require('../models/employee')
 const { getEmployeeByID, updateEmployee, deleteEmployee, getEmployees } = require('../services/employee');
 const isAdmin = require('../middlewares/admin');
 const canRead = require('../middlewares/read');
