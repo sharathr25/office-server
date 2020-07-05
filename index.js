@@ -23,12 +23,13 @@ app.use(error);
 
 const port = process.env.PORT || 3001;
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`server started at ${port}`);
-})
-
-mongoose.connect(config.mongodbURL,  { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false } )
+    mongoose.connect(config.mongodbURL,  { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false } )
     .then(() => {
-        console.log("DB connected")
+        console.log(`${config.mongodbURL} DB connected`)
     })
     .catch((err) => console.log("couldn't connect to db", err)) 
+})
+
+module.exports = server;

@@ -6,13 +6,12 @@
   "scripts": {
     "start": "ENV=prod node index.js",
     "start-dev": "ENV=dev node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ENV=test jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -21,5 +20,9 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "mongoose": "^5.8.6"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0",
+    "supertest": "^4.0.2"
   }
 }

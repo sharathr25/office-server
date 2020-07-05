@@ -6,6 +6,9 @@ const config = {
     },
     'prod' : {
         mongodbURL: `mongodb+srv://${process.env.OFFICE_DB_USER}:${process.env.OFFICE_DB_PASSWORD}@cluster0-phtnz.mongodb.net/office?retryWrites=true&w=majority`
+    },
+    'test': {
+        mongodbURL: 'mongodb://localhost/office_test'
     }
 }
 
