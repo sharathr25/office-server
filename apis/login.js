@@ -34,7 +34,7 @@ router.post('/admin', async (req, res) => {
     try {
         const match = await bcrypt.compare(password, employee.password)
         if(match) {
-            const token = jwt.sign({employee}, process.env.JWT_SECRET_KEY)        
+            const token = employee.generateAuthToken();   
             return res.send({token, employee: _.pick(employee, ['name', 'email', '_id', 'role', 'team'])})
         }
         return res.status(400).send("Invalid name or password")

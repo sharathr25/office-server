@@ -1,16 +1,27 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 const Joi = require('@hapi/joi');
 Joi.objectId = require('joi-objectid')(Joi);
 
 const Schema = mongoose.Schema;
 
-const Employee = mongoose.model('Employee', new Schema({
+const employeeShema = new Schema({
     email: { type: String, required: true, minlength: 5, maxlength: 50 },
     name: { type: String, required: true, minlength: 5, maxlength: 50 },
     password: { type: String, required: true, minlength: 5, maxlength: 1000 },
     team: { type: String, required: true, minlength: 3, maxlength: 50 },
     role: { type: String, required: true, minlength:3, maxlength: 50 },
-}));
+})
+
+employeeShema.methods.generateAuthToken = function () {
+    const token = jwt.sign(
+        { employee: {_id: this._id, name: this.name, email:this.email, team: this.team, role: this.role}}, 
+        process.env.JWT_SECRET_KEY
+    );
+    return token;   
+}
+
+const Employee = mongoose.model('Employee', employeeShema);
 
 const schemaForRegister = Joi.object({
     email: Joi.string()
